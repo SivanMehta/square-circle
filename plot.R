@@ -7,25 +7,17 @@ total.points <- (points.per.side - 2) * 4 + 4
 to.x.coord <- function(x) {
   if (x < points.per.side) {
     return (x * box.size)
-  } else if (x < points.per.side * 2) {
-    return (points.per.side)
-  } else if (x <= points.per.side * 3 - 2) {
-    return (points.per.side * 3 - 1 - x)
-  } else {
-    return (1)
   }
+
+  return (points.per.side)
 }
 
 to.y.coord <- function(x) {
   if (x < points.per.side) {
     return (1)
-  } else if (x < points.per.side * 2) {
-    return (x - points.per.side + 1)
-  } else if (x <= points.per.side * 3 - 2) {
-    return (points.per.side)
-  } else {
-    return (points.per.side * 4 - 3 - x + 1)
   }
+
+  return (x - points.per.side + 1)
 }
 
 points <- tibble(start = 1:(points.per.side - 1)) %>%
